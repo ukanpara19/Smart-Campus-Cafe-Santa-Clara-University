@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -21,7 +22,7 @@ import java.awt.event.ActionEvent;
 
 public class loginGui extends JFrame {
 	private JTextField Username_textField;
-	private JTextField Password_textField;
+    final JPasswordField password_field;
 	String username = new String();
 	String password = new String();
 
@@ -49,11 +50,12 @@ public class loginGui extends JFrame {
 		
 		setTitle("Smart Campus Cafe -  Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 311);
 		JLabel Title = new JLabel("Smart Campus Cafe");
 		Title.setForeground(Color.BLACK);
 		Title.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 20));
-		setContentPane(new JLabel(new ImageIcon("/Users/utsavkanpara/Desktop/Smart Campus Cafe/Images/plain light blue.jpg")));
+		
+		setContentPane(new JLabel(new ImageIcon("/Users/utsavkanpara/Desktop/Smart Campus Cafe/Images/blue.jpg")));
 		
 		
 		JLabel lblSantaClaraUniversity = new JLabel("Santa Clara University");
@@ -70,20 +72,21 @@ public class loginGui extends JFrame {
 		lblPassword.setFont(new Font("Arial", Font.BOLD, 16));
 		
 		Username_textField = new JTextField();
-		Username_textField.setColumns(10);
+		Username_textField.setColumns(15);
 		
-		Password_textField = new JTextField();
-		Password_textField.setColumns(10);
+		password_field = new JPasswordField(15);
+       
 		
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				
 				username = Username_textField.getText();
-				password = Password_textField.getText();
-//				System.out.println(username);
-//				System.out.println(password);
+				password = password_field.getText();
+//				System.out.print(username);
+//				System.out.print(password);
+				
 			}
 		});
 		
@@ -107,7 +110,7 @@ public class loginGui extends JFrame {
 								.addComponent(lblUsername, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 							.addGap(18)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(Password_textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(password_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(Username_textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(groupLayout.createSequentialGroup()
@@ -126,12 +129,16 @@ public class loginGui extends JFrame {
 					.addComponent(lblLoginDetails)
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+							
 						.addComponent(lblUsername)
 						.addComponent(Username_textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
+					
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblPassword, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-						.addComponent(Password_textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(password_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					
+
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(btnNewButton)
 					.addContainerGap(32, Short.MAX_VALUE))
