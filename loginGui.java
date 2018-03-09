@@ -65,7 +65,7 @@ public class loginGui extends JFrame {
 		JLabel lblLoginDetails = new JLabel("Login Details :");
 		lblLoginDetails.setFont(new Font("Arial", Font.BOLD, 14));
 		
-		JLabel lblUsername = new JLabel("Username :");
+		JLabel lblUsername = new JLabel("User ID :");
 		lblUsername.setFont(new Font("Arial", Font.BOLD, 16));
 		
 		JLabel lblPassword = new JLabel("Password :");
