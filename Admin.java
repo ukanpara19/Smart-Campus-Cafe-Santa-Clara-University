@@ -1,3 +1,4 @@
+
 package SmartCampusCafe;
 
 import java.awt.BorderLayout;
@@ -82,10 +83,9 @@ public class Admin extends JFrame {
 		
 		JTextArea textArea_Item = new JTextArea();
 		textArea_Item.setLineWrap(true);
-		textArea_Item.setWrapStyleWord(true);
 		
-		JScrollPane scrollPane = new JScrollPane(textArea_Item);
-		getContentPane().add(scrollPane);
+		JScrollBar scrollPane = new JScrollBar();
+		
 		
 		JButton btnNewButton = new JButton("Search");
 		btnNewButton.addActionListener(new ActionListener() {
