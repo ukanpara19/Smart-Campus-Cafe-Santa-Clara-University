@@ -9,6 +9,7 @@ import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -20,6 +21,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.ScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
@@ -35,6 +37,7 @@ public class Admin extends JFrame {
 	private JTextField txt_EnterUserId;
 	private JTextField txtfield_removeUser;
 	private JPasswordField txt_EnterAdminsPassword;
+	private JLabel background;
 
 
 	String search = new String ();
@@ -69,9 +72,16 @@ public class Admin extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		JFrame Admin_frame;
+	JFrame Admin_frame;
+//		Image image = GenerateImage.toImage(true);
 	
-		Admin_frame = new JFrame();
+   	     Admin_frame = new JFrame();
+	 
+		ImageIcon imgThisImg = new ImageIcon("https://www.walldevil.com/plain-blue-background-wallpaper-157381/");
+//	
+//		Admin_frame.setImage(imgThisImg);
+//		lbl_back.setIcon(imgThisImg);
+//	    
 		
 		JLabel lblAdminWindow = new JLabel("Admin Window");
 		lblAdminWindow.setFont(new Font("Apple Symbols", Font.PLAIN, 18));
@@ -156,6 +166,8 @@ public class Admin extends JFrame {
 				System.out.print(password);
 			}
 		});
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -185,27 +197,28 @@ public class Admin extends JFrame {
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 										.addComponent(btn_RemoveUser, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 										.addComponent(btnAdd_1, GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)))
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-									.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-										.addGap(9)
-										.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.UNRELATED)
-										.addComponent(rdbtnOpen)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(rdbtnClose))
-									.addGroup(gl_contentPane.createSequentialGroup()
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-											.addComponent(textField_searchItem, 330, 330, 330)
-											.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 294, GroupLayout.PREFERRED_SIZE))
-										.addGap(18)
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-											.addComponent(btnSearch, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE)
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-												.addComponent(btn_AddItem, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-												.addComponent(btn_DeleteItem, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(9)
+									.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(rdbtnOpen)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(rdbtnClose))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(textField_searchItem, 330, 330, 330)
+										.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 294, GroupLayout.PREFERRED_SIZE))
+									.addGap(18)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addComponent(btnSearch, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+											.addComponent(btn_AddItem, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addComponent(btn_DeleteItem, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(276)
+							.addContainerGap()
+//							.addComponent(lbl_back, GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+							.addGap(112)
 							.addComponent(lblAdminWindow, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(43)
@@ -213,7 +226,7 @@ public class Admin extends JFrame {
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(254)
 							.addComponent(btn_password, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(148, Short.MAX_VALUE))
+					.addGap(98))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -224,6 +237,8 @@ public class Admin extends JFrame {
 							.addComponent(lblAdminWindow, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 							.addGap(34))
 						.addGroup(gl_contentPane.createSequentialGroup()
+//							.addComponent(lbl_back)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(lblWelcome)
 							.addGap(18)))
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
@@ -273,7 +288,7 @@ public class Admin extends JFrame {
 		);
 		
 		JTextArea txtrPizza = new JTextArea();
-		txtrPizza.setText("Pizza\nBUrger\nxytz\ns\ns\ns\ns\ns\ns\ns\ns\ns\n\ns\ns\ns\n");
+		txtrPizza.setText("Espresso\nPizza\nBurger\nLatte\n");
 		scrollPane.setViewportView(txtrPizza);
 		contentPane.setLayout(gl_contentPane);
 	}
