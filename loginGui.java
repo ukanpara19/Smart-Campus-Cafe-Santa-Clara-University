@@ -19,6 +19,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Window.Type;
 
 public class loginGui extends JFrame {
 	private JTextField Username_textField;
@@ -47,6 +48,9 @@ public class loginGui extends JFrame {
 	 * Create the frame.
 	 */
 	public loginGui() {
+		setResizable(false);
+		setEnabled(false);
+		setType(Type.POPUP);
 		
 		setTitle("Smart Campus Cafe -  Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,7 +59,8 @@ public class loginGui extends JFrame {
 		Title.setForeground(Color.BLACK);
 		Title.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 20));
 		
-		setContentPane(new JLabel(new ImageIcon("/Users/utsavkanpara/Desktop/Smart Campus Cafe/Images/blue.jpg")));
+		JLabel label = new JLabel(new ImageIcon("/Users/utsavkanpara/Desktop/Smart Campus Cafe/Images/blue.jpg"));
+		setContentPane(label);
 		
 		
 		JLabel lblSantaClaraUniversity = new JLabel("Santa Clara University");
@@ -65,7 +70,7 @@ public class loginGui extends JFrame {
 		JLabel lblLoginDetails = new JLabel("Login Details :");
 		lblLoginDetails.setFont(new Font("Arial", Font.BOLD, 14));
 		
-		JLabel lblUsername = new JLabel("User ID :");
+		JLabel lblUsername = new JLabel("Username :");
 		lblUsername.setFont(new Font("Arial", Font.BOLD, 16));
 		
 		JLabel lblPassword = new JLabel("Password :");
