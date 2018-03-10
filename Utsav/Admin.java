@@ -1,51 +1,40 @@
 package SmartCampusCafe;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JList;
+import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.ScrollPane;
-import javax.swing.JTextPane;
-import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
 
-public class Admin extends JFrame {
+public class AdminGui extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField_searchItem;
-	private JTextField txt_EnterUserId;
-	private JTextField txtfield_removeUser;
-	private JPasswordField txt_EnterAdminsPassword;
-	private JLabel background;
-
-
-	String search = new String ();
-	String AddUser = new String();
-	String DeleteUser = new String();
+	private JTextField textField_addUser;
+	private JTextField textField_removeUser;
+	private JPasswordField passwordField;
+	String searchitem = new String();
+	String addUser = new String();
+	String removeUser = new String();
 	String password = new String();
 	String Items = new String();
 	
+
 	/**
 	 * Launch the application.
 	 */
@@ -53,7 +42,7 @@ public class Admin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Admin frame = new Admin();
+					AdminGui frame = new AdminGui();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -65,231 +54,170 @@ public class Admin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Admin() {
-		setTitle("Smart Student Cafe - Admin");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 723, 671);
+	public AdminGui() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 710, 743);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-	JFrame Admin_frame;
-//		Image image = GenerateImage.toImage(true);
-	
-   	     Admin_frame = new JFrame();
-	 
-		ImageIcon imgThisImg = new ImageIcon("https://www.walldevil.com/plain-blue-background-wallpaper-157381/");
-//	
-//		Admin_frame.setImage(imgThisImg);
-//		lbl_back.setIcon(imgThisImg);
-//	    
+		contentPane.setLayout(null);
 		
-		JLabel lblAdminWindow = new JLabel("Admin Window");
-		lblAdminWindow.setFont(new Font("Apple Symbols", Font.PLAIN, 18));
-		
-		JLabel lblSearch = new JLabel("Search Items :");
-		
-		textField_searchItem = new JTextField();
-		textField_searchItem.setColumns(10);
-		
-		JLabel lblItems = new JLabel("Items :");
-		
-		JLabel lblNewLabel = new JLabel("Status of Cafe : ");
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Mission Bakery", "Sunstream Cafe", "Candence ", "La-parilla", "Broncos", "Bistro"}));
-		
-		JLabel lblAddUser = new JLabel("Add User:");
-		
-		txt_EnterUserId = new JTextField();
-		
-		txt_EnterUserId.setColumns(10);
-		
-		JLabel lblRemoveUser = new JLabel("Remove User:");
-		
-		txtfield_removeUser = new JTextField();
-
-		txtfield_removeUser.setColumns(10);
-		
-		JLabel lblAdminPassword = new JLabel("Admin Password:");
-		
-		txt_EnterAdminsPassword = new JPasswordField();
-		
-		txt_EnterAdminsPassword.setColumns(10);
+		JLabel lblAdminWindow = new JLabel("ADMIN WINDOW");
+		lblAdminWindow.setForeground(Color.BLACK);
+		lblAdminWindow.setBounds(253, 18, 118, 25);
+		contentPane.add(lblAdminWindow);
 		
 		JLabel lblWelcome = new JLabel("Welcome,");
+		lblWelcome.setFont(new Font(".SF NS Text", Font.PLAIN, 17));
+		lblWelcome.setBounds(28, 54, 116, 27);
+		contentPane.add(lblWelcome);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		JLabel lblSearch = new JLabel("Search : ");
+		lblSearch.setBounds(64, 95, 61, 16);
+		contentPane.add(lblSearch);
+		
+		textField_searchItem = new JTextField();
+		textField_searchItem.setBounds(138, 86, 352, 35);
+		contentPane.add(textField_searchItem);
+		textField_searchItem.setColumns(10);
 		
 		JButton btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				search = textField_searchItem.getText();
-				System.out.print(search);
+				searchitem = textField_searchItem.getText();
+				System.out.print(searchitem);
+	
 			}
 		});
+		btnSearch.setBounds(502, 87, 117, 35);
+		contentPane.add(btnSearch);
 		
-		JButton btn_AddItem = new JButton("Add Item");
-		btn_AddItem.addActionListener(new ActionListener() {
+		JLabel lblItems = new JLabel("Items:");
+		lblItems.setBounds(64, 142, 61, 16);
+		contentPane.add(lblItems);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(148, 133, 320, 244);
+		contentPane.add(scrollPane);
+		
+		JTextArea txtarea_items = new JTextArea();
+		txtarea_items.setText("Pizza\nBurger\ncoffee\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nj\nk\nn\no\np\nq\nr\ns\nt\nu\nv\n\nwx\ny\nz\n");
+		scrollPane.setViewportView(txtarea_items);
+		
+		JButton btnAddItems = new JButton("ADD Items");
+		btnAddItems.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				Items = scrollPane.getName();
-//				System.out.print(Item);
-//				
+				Items = txtarea_items.getText();
+				System.out.print(Items);
+				
 			}
 		});
+		btnAddItems.setBounds(501, 145, 118, 40);
+		contentPane.add(btnAddItems);
 		
-		JButton btn_DeleteItem = new JButton("Delete Item");
+		JButton btnDeleteItems = new JButton("DELETE Items");
+		btnDeleteItems.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnDeleteItems.setBounds(501, 197, 118, 40);
+		contentPane.add(btnDeleteItems);
+		
+		JLabel lblStausOfCafes = new JLabel("Staus of Cafe's :");
+		lblStausOfCafes.setBounds(24, 433, 101, 16);
+		contentPane.add(lblStausOfCafes);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(147, 429, 246, 27);
+		contentPane.add(comboBox);
 		
 		JRadioButton rdbtnOpen = new JRadioButton("Open");
+		rdbtnOpen.setSelected(true);
+		rdbtnOpen.setBounds(411, 423, 92, 35);
+		contentPane.add(rdbtnOpen);
 		
 		JRadioButton rdbtnClose = new JRadioButton("Close");
+		rdbtnClose.setBounds(494, 423, 121, 35);
+		contentPane.add(rdbtnClose);
 		
-		JButton btnAdd_1 = new JButton("Add User");
-		btnAdd_1.addActionListener(new ActionListener() {
+		ButtonGroup group = new ButtonGroup();
+		group.add(rdbtnOpen);
+		group.add(rdbtnClose);
+		
+		JLabel lblAddUser = new JLabel("Add User :");
+		lblAddUser.setBounds(28, 544, 80, 25);
+		contentPane.add(lblAddUser);
+		
+		JLabel lblManageUsers = new JLabel("User Management: Here you can manage different users");
+		lblManageUsers.setBounds(130, 495, 423, 35);
+		contentPane.add(lblManageUsers);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(28, 482, 638, 12);
+		contentPane.add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(28, 41, 638, 12);
+		contentPane.add(separator_1);
+		
+		textField_addUser = new JTextField();
+		textField_addUser.setBounds(173, 539, 291, 35);
+		contentPane.add(textField_addUser);
+		textField_addUser.setColumns(10);
+		
+		JButton btnAddUser = new JButton("ADD User");
+		btnAddUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddUser = txt_EnterUserId.getText();
-				System.out.print(AddUser);
+				addUser = textField_addUser.getText();
+				System.out.print(addUser);
 			}
 		});
+		btnAddUser.setBounds(494, 540, 121, 35);
+		contentPane.add(btnAddUser);
 		
-		JButton btn_RemoveUser = new JButton("Remove User");
-		btn_RemoveUser.addActionListener(new ActionListener() {
+		JLabel lblDeleteUser = new JLabel("Delete User :");
+		lblDeleteUser.setBounds(28, 591, 80, 25);
+		contentPane.add(lblDeleteUser);
+		
+		textField_removeUser = new JTextField();
+		textField_removeUser.setBounds(173, 586, 293, 35);
+		contentPane.add(textField_removeUser);
+		textField_removeUser.setColumns(10);
+		
+		JButton btnDeleteUser = new JButton("Delete User");
+		btnDeleteUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DeleteUser = txtfield_removeUser.getText();
-				System.out.print(DeleteUser);
+				removeUser = textField_removeUser.getText();
+				System.out.print(removeUser);
 			}
 		});
+		btnDeleteUser.setBounds(494, 587, 121, 35);
+		contentPane.add(btnDeleteUser);
 		
-		JButton btn_password = new JButton("Submit");
-		btn_password.addActionListener(new ActionListener() {
+		JLabel lblAdminsPassword = new JLabel("Admin's Password:");
+		lblAdminsPassword.setBounds(28, 651, 132, 16);
+		contentPane.add(lblAdminsPassword);
+		
+		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				password = txt_EnterAdminsPassword.getText();
+				password = passwordField.getText();
 				System.out.print(password);
 			}
 		});
+		btnSubmit.setBounds(495, 636, 120, 34);
+		contentPane.add(btnSubmit);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(173, 637, 293, 35);
+		contentPane.add(passwordField);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(AdminGui.class.getResource("/SmartCampusCafe/blue.jpg")));
+		lblNewLabel.setBounds(2, -1, 704, 709);
+		contentPane.add(lblNewLabel);
 		
 		
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(24)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblItems, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblSearch)
-										.addComponent(lblAddUser)
-										.addComponent(lblRemoveUser)
-										.addComponent(lblAdminPassword))
-									.addGap(12))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(lblNewLabel)
-									.addGap(18)))
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-										.addComponent(txt_EnterUserId, Alignment.LEADING)
-										.addComponent(txtfield_removeUser, Alignment.LEADING)
-										.addComponent(txt_EnterAdminsPassword, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE))
-									.addGap(23)
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-										.addComponent(btn_RemoveUser, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(btnAdd_1, GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGap(9)
-									.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(rdbtnOpen)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(rdbtnClose))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(textField_searchItem, 330, 330, 330)
-										.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 294, GroupLayout.PREFERRED_SIZE))
-									.addGap(18)
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-										.addComponent(btnSearch, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-											.addComponent(btn_AddItem, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-											.addComponent(btn_DeleteItem, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-//							.addComponent(lbl_back, GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-							.addGap(112)
-							.addComponent(lblAdminWindow, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(43)
-							.addComponent(lblWelcome))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(254)
-							.addComponent(btn_password, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)))
-					.addGap(98))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblAdminWindow, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-							.addGap(34))
-						.addGroup(gl_contentPane.createSequentialGroup()
-//							.addComponent(lbl_back)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblWelcome)
-							.addGap(18)))
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblSearch)
-						.addComponent(textField_searchItem, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnSearch, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblItems)
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(btn_AddItem, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(btn_DeleteItem, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-							.addGap(116))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(26)
-							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 233, GroupLayout.PREFERRED_SIZE)))
-					.addGap(32)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(rdbtnOpen)
-						.addComponent(lblNewLabel)
-						.addComponent(rdbtnClose))
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(18)
-							.addComponent(lblAddUser))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(12)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txt_EnterUserId, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnAdd_1, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(btn_RemoveUser, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-									.addComponent(txtfield_removeUser, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-									.addComponent(lblRemoveUser)))))
-					.addGap(18)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblAdminPassword)
-						.addComponent(txt_EnterAdminsPassword, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(btn_password, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(19, Short.MAX_VALUE))
-		);
-		
-		JTextArea txtrPizza = new JTextArea();
-		txtrPizza.setText("Espresso\nPizza\nBurger\nLatte\n");
-		scrollPane.setViewportView(txtrPizza);
-		contentPane.setLayout(gl_contentPane);
 	}
 }
