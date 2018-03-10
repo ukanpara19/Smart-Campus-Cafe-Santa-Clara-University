@@ -73,7 +73,7 @@ public class loginGui extends JFrame {
 		Title.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 20));
 //		 frame = new JFrame();
 		 
-		setContentPane(new JLabel(new ImageIcon("www.genenacity.com/smugglers-cafe/ayuda-el-cafe-a-quemar-grasa-al-practicar-deporte1/")));
+		setContentPane(new JLabel(new ImageIcon("/Users/utsavkanpara/eclipse-workspace/SmartCampuscafe/src/SmartCampusCafe/blue.jpg")));
 		
 		JLabel lblSantaClaraUniversity = new JLabel("Santa Clara University");
 		lblSantaClaraUniversity.setForeground(Color.BLACK);
@@ -105,7 +105,7 @@ public class loginGui extends JFrame {
 
 				if(username.equals("name") && password.equals("password")) {
 					
-					Admin s = new Admin ();
+					AdminGui s = new AdminGui ();
 					s.setVisible(true);
 					close();
 
