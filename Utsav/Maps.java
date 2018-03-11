@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JTextArea;
+import javax.swing.JList;
 
 public class Maps extends JFrame {
 
@@ -41,8 +44,9 @@ public class Maps extends JFrame {
 	public Maps() {
 		setTitle("Smart Campus Cafe - Cafe Map");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 615, 566);
+		setBounds(100, 100, 853, 855);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(153, 153, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -57,7 +61,7 @@ public class Maps extends JFrame {
 				
 			}
 		});
-		btnMissionBakery.setBounds(84, 87, 117, 36);
+		btnMissionBakery.setBounds(730, 270, 117, 48);
 		contentPane.add(btnMissionBakery);
 		
 		JButton btnSunstream = new JButton("Sunstream");
@@ -68,10 +72,11 @@ public class Maps extends JFrame {
 				close();
 			}
 		});
-		btnSunstream.setBounds(73, 348, 117, 36);
+		btnSunstream.setBounds(730, 330, 117, 48);
 		contentPane.add(btnSunstream);
 		
 		JButton btnCafe = new JButton("Cafe 004");
+		btnCafe.setBackground(new Color(0, 51, 102));
 		btnCafe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// create object of that class
@@ -79,21 +84,25 @@ public class Maps extends JFrame {
 				close();
 			}
 		});
-		btnCafe.setBounds(419, 87, 117, 36);
+		btnCafe.setBounds(730, 390, 117, 48);
 		contentPane.add(btnCafe);
 		
 		JButton btnBistro = new JButton("Bistro");
-		btnBistro.setBounds(419, 333, 117, 36);
+		btnBistro.setBounds(730, 210, 117, 48);
 		contentPane.add(btnBistro);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("/Users/utsavkanpara/Desktop/map.png"));
-		lblNewLabel.setBounds(6, -21, 658, 574);
-		contentPane.add(lblNewLabel);
+		JLabel lblWelcomeToSmart = new JLabel("Hello, Welcome to Smart Capus Cafe ");
+		lblWelcomeToSmart.setForeground(new Color(240, 248, 255));
+		lblWelcomeToSmart.setOpaque(true);
+		lblWelcomeToSmart.setBackground(new Color(0, 51, 102));
+		lblWelcomeToSmart.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 18));
+		lblWelcomeToSmart.setBounds(6, 4, 874, 76);
+		contentPane.add(lblWelcomeToSmart);
 		
-		JButton button = new JButton("New button");
-		button.setBounds(226, 219, 117, 29);
-		contentPane.add(button);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("/Users/utsavkanpara/Desktop/Campus_Map.png"));
+		lblNewLabel.setBounds(6, 76, 725, 724);
+		contentPane.add(lblNewLabel);
 	}
 		
 	protected void close() {

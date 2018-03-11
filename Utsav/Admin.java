@@ -1,40 +1,54 @@
 package SmartCampusCafe;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.ButtonGroup;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
-import javax.swing.JScrollPane;
+import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
-import javax.swing.JSeparator;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.ScrollPane;
+import javax.swing.JTextPane;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
-import javax.swing.ImageIcon;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.Toolkit;
+import javax.swing.JSeparator;
 import java.awt.Color;
-import java.awt.Font;
 
-public class AdminGui extends JFrame {
+public class Admin extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField_searchItem;
-	private JTextField textField_addUser;
-	private JTextField textField_removeUser;
-	private JPasswordField passwordField;
-	String searchitem = new String();
-	String addUser = new String();
-	String removeUser = new String();
+	private JTextField txt_EnterUserId;
+	private JTextField txtfield_removeUser;
+	private JPasswordField txt_EnterAdminsPassword;
+	private JLabel background;
+
+
+	String search = new String ();
+	String AddUser = new String();
+	String DeleteUser = new String();
 	String password = new String();
 	String Items = new String();
 	
-
 	/**
 	 * Launch the application.
 	 */
@@ -42,7 +56,7 @@ public class AdminGui extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdminGui frame = new AdminGui();
+					Admin frame = new Admin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,170 +68,167 @@ public class AdminGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AdminGui() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 710, 743);
+	public Admin() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("/Users/utsavkanpara/Desktop/grey.jpg"));
+		setTitle("Smart Student Cafe - Admin");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 677, 671);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+	JFrame Admin_frame;
 		
-		JLabel lblAdminWindow = new JLabel("ADMIN WINDOW");
-		lblAdminWindow.setForeground(Color.BLACK);
-		lblAdminWindow.setBounds(253, 18, 118, 25);
-		contentPane.add(lblAdminWindow);
+	
+   	     Admin_frame = new JFrame();
+	 
 		
-		JLabel lblWelcome = new JLabel("Welcome,");
-		lblWelcome.setFont(new Font(".SF NS Text", Font.PLAIN, 17));
-		lblWelcome.setBounds(28, 54, 116, 27);
-		contentPane.add(lblWelcome);
+	    
+		JLabel lblAdminWindow = new JLabel("Admin Window");
+		lblAdminWindow.setBounds(291, 6, 146, 30);
+		lblAdminWindow.setFont(new Font("Apple Symbols", Font.PLAIN, 18));
 		
-		JLabel lblSearch = new JLabel("Search : ");
-		lblSearch.setBounds(64, 95, 61, 16);
-		contentPane.add(lblSearch);
+		JLabel lblSearch = new JLabel("Search Items :");
+		lblSearch.setBounds(26, 84, 88, 16);
 		
 		textField_searchItem = new JTextField();
-		textField_searchItem.setBounds(138, 86, 352, 35);
-		contentPane.add(textField_searchItem);
+		textField_searchItem.setBounds(149, 75, 330, 34);
 		textField_searchItem.setColumns(10);
 		
-		JButton btnSearch = new JButton("Search");
-		btnSearch.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				searchitem = textField_searchItem.getText();
-				System.out.print(searchitem);
-	
-			}
-		});
-		btnSearch.setBounds(502, 87, 117, 35);
-		contentPane.add(btnSearch);
+		JLabel lblItems = new JLabel("Items :");
+		lblItems.setBounds(39, 138, 51, 16);
 		
-		JLabel lblItems = new JLabel("Items:");
-		lblItems.setBounds(64, 142, 61, 16);
-		contentPane.add(lblItems);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(148, 133, 320, 244);
-		contentPane.add(scrollPane);
-		
-		JTextArea txtarea_items = new JTextArea();
-		txtarea_items.setText("Pizza\nBurger\ncoffee\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nj\nk\nn\no\np\nq\nr\ns\nt\nu\nv\n\nwx\ny\nz\n");
-		scrollPane.setViewportView(txtarea_items);
-		
-		JButton btnAddItems = new JButton("ADD Items");
-		btnAddItems.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Items = txtarea_items.getText();
-				System.out.print(Items);
-				
-			}
-		});
-		btnAddItems.setBounds(501, 145, 118, 40);
-		contentPane.add(btnAddItems);
-		
-		JButton btnDeleteItems = new JButton("DELETE Items");
-		btnDeleteItems.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnDeleteItems.setBounds(501, 197, 118, 40);
-		contentPane.add(btnDeleteItems);
-		
-		JLabel lblStausOfCafes = new JLabel("Staus of Cafe's :");
-		lblStausOfCafes.setBounds(24, 433, 101, 16);
-		contentPane.add(lblStausOfCafes);
+		JLabel lblNewLabel = new JLabel("Status of Cafe : ");
+		lblNewLabel.setBounds(29, 411, 100, 16);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(147, 429, 246, 27);
-		contentPane.add(comboBox);
+		comboBox.setBounds(158, 407, 154, 27);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Mission Bakery", "Sunstream Cafe", "Candence ", "La-parilla", "Broncos", "Bistro"}));
+		
+		JLabel lblAddUser = new JLabel("Add User:");
+		lblAddUser.setBounds(29, 471, 61, 16);
+		
+		txt_EnterUserId = new JTextField();
+		txt_EnterUserId.setBounds(149, 462, 306, 35);
+		
+		txt_EnterUserId.setColumns(10);
+		
+		JLabel lblRemoveUser = new JLabel("Remove User:");
+		lblRemoveUser.setBounds(29, 518, 85, 16);
+		
+		txtfield_removeUser = new JTextField();
+		txtfield_removeUser.setBounds(149, 509, 306, 34);
+
+		txtfield_removeUser.setColumns(10);
+		
+		JLabel lblAdminPassword = new JLabel("Admin Password:");
+		lblAdminPassword.setBounds(29, 564, 108, 16);
+		
+		txt_EnterAdminsPassword = new JPasswordField();
+		txt_EnterAdminsPassword.setBounds(149, 555, 306, 34);
+		
+		txt_EnterAdminsPassword.setColumns(10);
+		
+		JLabel lblWelcome = new JLabel("Welcome,");
+		lblWelcome.setBounds(40, 47, 60, 16);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(149, 136, 294, 233);
+		
+		JButton btnSearch = new JButton("Search");
+		btnSearch.setBounds(501, 68, 112, 33);
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				search = textField_searchItem.getText();
+				System.out.print(search);
+			}
+		});
+		
+		JButton btn_AddItem = new JButton("Add Item");
+		btn_AddItem.setBounds(478, 140, 116, 50);
+		btn_AddItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+               Items = textField_searchItem.getText();
+			  System.out.print(Items);
+			
+			}
+		});
+		
+		JButton btn_DeleteItem = new JButton("Delete Item");
+		btn_DeleteItem.setBounds(478, 206, 116, 49);
 		
 		JRadioButton rdbtnOpen = new JRadioButton("Open");
-		rdbtnOpen.setSelected(true);
-		rdbtnOpen.setBounds(411, 423, 92, 35);
-		contentPane.add(rdbtnOpen);
+		rdbtnOpen.setBounds(328, 407, 65, 23);
 		
 		JRadioButton rdbtnClose = new JRadioButton("Close");
-		rdbtnClose.setBounds(494, 423, 121, 35);
-		contentPane.add(rdbtnClose);
+		rdbtnClose.setBounds(412, 407, 67, 23);
 		
-		ButtonGroup group = new ButtonGroup();
-		group.add(rdbtnOpen);
-		group.add(rdbtnClose);
-		
-		JLabel lblAddUser = new JLabel("Add User :");
-		lblAddUser.setBounds(28, 544, 80, 25);
-		contentPane.add(lblAddUser);
-		
-		JLabel lblManageUsers = new JLabel("User Management: Here you can manage different users");
-		lblManageUsers.setBounds(130, 495, 423, 35);
-		contentPane.add(lblManageUsers);
-		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(28, 482, 638, 12);
-		contentPane.add(separator);
-		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(28, 41, 638, 12);
-		contentPane.add(separator_1);
-		
-		textField_addUser = new JTextField();
-		textField_addUser.setBounds(173, 539, 291, 35);
-		contentPane.add(textField_addUser);
-		textField_addUser.setColumns(10);
-		
-		JButton btnAddUser = new JButton("ADD User");
-		btnAddUser.addActionListener(new ActionListener() {
+		JButton btnAdd_1 = new JButton("Add User");
+		btnAdd_1.setBounds(478, 464, 142, 33);
+		btnAdd_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addUser = textField_addUser.getText();
-				System.out.print(addUser);
+				AddUser = txt_EnterUserId.getText();
+				System.out.print(AddUser);
 			}
 		});
-		btnAddUser.setBounds(494, 540, 121, 35);
-		contentPane.add(btnAddUser);
 		
-		JLabel lblDeleteUser = new JLabel("Delete User :");
-		lblDeleteUser.setBounds(28, 591, 80, 25);
-		contentPane.add(lblDeleteUser);
-		
-		textField_removeUser = new JTextField();
-		textField_removeUser.setBounds(173, 586, 293, 35);
-		contentPane.add(textField_removeUser);
-		textField_removeUser.setColumns(10);
-		
-		JButton btnDeleteUser = new JButton("Delete User");
-		btnDeleteUser.addActionListener(new ActionListener() {
+		JButton btn_RemoveUser = new JButton("Remove User");
+		btn_RemoveUser.setBounds(478, 510, 142, 34);
+		btn_RemoveUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				removeUser = textField_removeUser.getText();
-				System.out.print(removeUser);
+				DeleteUser = txtfield_removeUser.getText();
+				System.out.print(DeleteUser);
 			}
 		});
-		btnDeleteUser.setBounds(494, 587, 121, 35);
-		contentPane.add(btnDeleteUser);
 		
-		JLabel lblAdminsPassword = new JLabel("Admin's Password:");
-		lblAdminsPassword.setBounds(28, 651, 132, 16);
-		contentPane.add(lblAdminsPassword);
-		
-		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.addActionListener(new ActionListener() {
+		JButton btn_password = new JButton("Submit");
+		btn_password.setBounds(272, 605, 183, 38);
+		btn_password.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				password = passwordField.getText();
+				password = txt_EnterAdminsPassword.getText();
 				System.out.print(password);
 			}
 		});
-		btnSubmit.setBounds(495, 636, 120, 34);
-		contentPane.add(btnSubmit);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(173, 637, 293, 35);
-		contentPane.add(passwordField);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(AdminGui.class.getResource("/SmartCampusCafe/blue.jpg")));
-		lblNewLabel.setBounds(2, -1, 704, 709);
+		JTextArea txtrPizza = new JTextArea();
+		txtrPizza.setText("Espresso\nPizza\nBurger\nLatte\n");
+		scrollPane.setColumnHeaderView(txtrPizza);
+		contentPane.setLayout(null);
+		contentPane.add(lblSearch);
+		contentPane.add(lblAddUser);
+		contentPane.add(lblRemoveUser);
+		contentPane.add(lblAdminPassword);
+		contentPane.add(lblItems);
 		contentPane.add(lblNewLabel);
+		contentPane.add(txt_EnterUserId);
+		contentPane.add(txtfield_removeUser);
+		contentPane.add(txt_EnterAdminsPassword);
+		contentPane.add(btn_RemoveUser);
+		contentPane.add(btnAdd_1);
+		contentPane.add(comboBox);
+		contentPane.add(rdbtnOpen);
+		contentPane.add(rdbtnClose);
+		contentPane.add(textField_searchItem);
+		contentPane.add(scrollPane);
+		contentPane.add(btnSearch);
+		contentPane.add(btn_AddItem);
+		contentPane.add(btn_DeleteItem);
+		contentPane.add(lblAdminWindow);
+		contentPane.add(lblWelcome);
+		contentPane.add(btn_password);
 		
+		JSeparator separator = new JSeparator();
+		separator.setForeground(Color.DARK_GRAY);
+		separator.setBounds(27, 27, 633, 16);
+		contentPane.add(separator);
 		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setForeground(Color.DARK_GRAY);
+		separator_1.setBounds(25, 387, 635, 12);
+		contentPane.add(separator_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(17, 184, 73, 50);
+		contentPane.add(lblNewLabel_1);
 	}
 }

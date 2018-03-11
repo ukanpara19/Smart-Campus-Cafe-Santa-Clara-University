@@ -42,7 +42,7 @@ public class WelcomeScreen extends JFrame {
 	public WelcomeScreen() {
 		setTitle("Smart Campus Cafe - Welcome Screen");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 623, 582);
+		setBounds(100, 100, 625, 639);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -67,12 +67,12 @@ public class WelcomeScreen extends JFrame {
 							
 		}
 		});
-		btnNewButton.setBounds(238, 384, 160, 57);
+		btnNewButton.setBounds(237, 391, 160, 57);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("/Users/utsavkanpara/Desktop/welcome.jpg"));
-		lblNewLabel.setBounds(0, 0, 637, 558);
+		lblNewLabel.setBounds(0, -11, 623, 630);
 		contentPane.add(lblNewLabel);
 	}
 	protected void close() {
