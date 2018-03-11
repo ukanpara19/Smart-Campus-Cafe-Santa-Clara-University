@@ -27,6 +27,8 @@ import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Toolkit;
@@ -230,5 +232,28 @@ public class Admin extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setBounds(17, 184, 73, 50);
 		contentPane.add(lblNewLabel_1);
+		
+		JButton btnLogOut = new JButton("Log Out");
+		btnLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				loginGui a = null;
+				try {
+					a = new loginGui ();
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				a.setVisible(true);
+				close();
+			}
+		});
+		btnLogOut.setBounds(521, 6, 117, 29);
+		contentPane.add(btnLogOut);
+	}
+	protected void close() {
+		// TODO Auto-generated method stub
+		WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+		
 	}
 }
