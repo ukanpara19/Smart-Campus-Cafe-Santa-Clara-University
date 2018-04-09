@@ -47,6 +47,7 @@ public class Maps extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
 	public Maps() {
 		setTitle("Smart Campus Cafe - Cafe Map");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -63,7 +64,7 @@ public class Maps extends JFrame {
 		JLabel lblMissionBakery = new JLabel("");
 		
 		
-//**********************MIssion Bakery *********************************************
+//********************* Mission Bakery *********************************************
 		JButton btnMissionBakery = new JButton("Mission Bakery");
 		btnMissionBakery.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -201,8 +202,6 @@ public class Maps extends JFrame {
 		btnBistro.setBounds(758, 470, 188, 48);
 		contentPane.add(btnBistro);
 	
-		
-		
 		
 		JLabel lblWelcomeToSmart = new JLabel("");
 		lblWelcomeToSmart.setOpaque(true);
