@@ -56,7 +56,6 @@ public class AdminUI extends JFrame {
 			}
 		});
 	}
-
 	/**
 	 * Create the frame.
 	 * @throws FileNotFoundException 
